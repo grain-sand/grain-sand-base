@@ -1,0 +1,23 @@
+{
+  "name": "grain-sand-base",
+  "version": "0.1.1",
+  "type": "module",
+  "main": "lib/index.js",
+  "module": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "license": "MIT",
+  "scripts": {
+    "publish": "npm publish --access public"
+  },
+  "dependencies": {
+    "js-base64": "^3.7.7"
+  },
+  "homepage": "https://gitee.com/grain-sand/grain-sand-base",
+  "preferred-homepages": [
+    "https://github.com/grain-sand/grain-sand-base"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/grain-sand/grain-sand-base"
+  }
+}

@@ -7,7 +7,9 @@
     "test:timer": "vitest timer --test-timeout=500000",
     "test:bak": "vitest bak",
     "test:gzip": "vitest gzip",
-    "test:format": "vitest format"
+    "test:format": "vitest format",
+    "npm:login": "npm login --registry https://registry.npmjs.org/",
+    "npm:publish": "cd dist && npm publish --registry https://registry.npmjs.org/ --access public"
   },
   "dependencies": {
     "js-base64": "^3.7.7"
