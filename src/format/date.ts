@@ -24,9 +24,9 @@ const formatRegex = /\\?([ymdhis\\]|W[dn])/ig
  */
 export function date(time?: number | Date | string, format: string = 'Y-M-D H:I:S'): string {
 	const desc = new DateDesc(time)
-	return format.replace(formatRegex, ((v) => {
+	return format.replace(formatRegex, ((v: string) => {
 		if (v.startsWith('\\')) return v.slice(1);
-		const rv = desc[v];
+		const rv: any = desc[v] as any;
 		return rv===undefined?v:rv;
 	}) as any)
 }

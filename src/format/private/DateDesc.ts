@@ -5,6 +5,8 @@ const enDaysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'F
 const cnDaysOfWeek = cnNumber.replace('零', '日');
 export class DateDesc {
 
+	[key:string]:any
+
 	private readonly date:Date;
 	constructor(date?:number|Date|string) {
 		date || (date = new Date())
