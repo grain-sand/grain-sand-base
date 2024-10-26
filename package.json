@@ -1,6 +1,6 @@
 {
   "name": "grain-sand-base-dev",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "scripts": {
     "build": "rollup -c --compact",
     "build-watch": "rollup -c --watch",
@@ -8,6 +8,7 @@
     "test:bak": "vitest bak",
     "test:gzip": "vitest gzip",
     "test:format": "vitest format",
+    "test:string": "vitest string",
     "npm:login": "npm login --registry https://registry.npmjs.org/",
     "npm:publish": "cd dist && npm publish --registry https://registry.npmjs.org/ --access public"
   },
