@@ -3,6 +3,8 @@ import alias from '@rollup/plugin-alias'
 import esbuild from 'rollup-plugin-esbuild'
 import typescript from 'rollup-plugin-typescript2'
 import resolve from '@rollup/plugin-node-resolve';
+import terser from '@rollup/plugin-terser';
+import copy from 'rollup-plugin-copy'
 
 const input = 'src/index.ts'
 
@@ -13,52 +15,39 @@ const tsConfig = {
 	exclude: ["test-src/**/*.ts"],
 }
 
-const jsConfig ={
-	input,
-	output: [
-		{
-			file: 'dist/lib/index.js',
-			format: 'esm'
-		},
-	],
-	external,
+const output = (suffix) => ({
+	file: `dist/lib/index.${suffix}`,
+	format: 'esm'
+});
+
+const jsConfig = (suffix, external, plugins = []) => ({
+	input, external,
+	output: output(suffix),
 	plugins: [
 		alias(),
 		resolve(),
 		typescript(tsConfig),
 		esbuild(),
-	]
-}
-
-// const jsConfigMini = Object.assign({},jsConfig);
-// jsConfigMini.output[0].file = 'dist/lib/index.min.js';
-// jsConfigMini.plugins.push(terser())
-
-const dtsConfig = {
-	input,
-	output: {
-		file: 'dist/lib/index.d.ts',
-		format: 'esm'
-	},
-	external,
-	plugins: [
-		dts(tsConfig)
+		terser(),
+		...plugins
 	],
-}
+	sourceMap: false
+})
 
+export default [
+	jsConfig('js', external),
+	jsConfig('web.js', []),
+	{
+		input, external,
+		output: output('d.ts'),
+		plugins: [
+			dts(tsConfig),
+			copy({
+				targets: [
+					{src: 'README.md', dest: 'dist'}
+				]
+			})
+		]
+	}
+]
 
-const rv = [];
-
-switch (process.env.build) {
-	case 'dts':
-		rv.push(dtsConfig);
-		break
-	case 'js':
-		rv.push(jsConfig);
-		// rv.push(jsConfig,jsConfigMini);
-		break
-	default:
-		rv.push(dtsConfig,jsConfig)
-		// rv.push(dtsConfig,jsConfig,jsConfigMini)
-}
-export default rv;
