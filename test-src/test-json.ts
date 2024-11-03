@@ -1,5 +1,6 @@
 import {describe, it} from "vitest";
 import {logJson} from "../src";
+import {ToJsonContext} from "../src/json/impl/ToJsonContext";
 
 const console = (top as any).console;
 

@@ -1,9 +1,8 @@
 import {IRecordMeta} from "./IRecordMeta";
-import {ITextReader} from "./ITextReader";
 import {isString} from "../types";
-import {StringTextReader} from "./StringTextReader";
 import {SimpleDataTypePrefix} from "./SimpleDataExport";
 import {copyObject} from "../basic";
+import {ITextReader, StringTextReader} from "../string";
 
 const SpaceRegex = /^\s*$/
 

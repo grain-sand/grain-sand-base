@@ -3,7 +3,7 @@ import {checkFieldsRecord, createFieldEntries} from "./impl/checkFieldsRecord";
 import {IRecordMeta} from "./IRecordMeta";
 import {isAsyncIterable, isIterable} from "../types";
 import {createDataLine} from "./impl/createDataLine";
-import {joinAsyncIterable} from "../basic";
+import {joinAsyncIterable} from "../string";
 
 export const SimpleDataTypePrefix: string = '//';
 
