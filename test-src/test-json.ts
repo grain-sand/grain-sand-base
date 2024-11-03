@@ -37,7 +37,7 @@ describe('json', () => {
 		await logJson(obj,'json')
 	})
 	it('toJsJson', async (): Promise<void> => {
-		const o2 = {
+		const o2:any = {
 			name: 'o22'
 		}
 		const o3 = {
