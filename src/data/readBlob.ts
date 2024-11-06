@@ -60,8 +60,10 @@ export function readBlob(blob: Blob, type: BlobTypes, encoding?: EncodingType): 
 			switch (type) {
 				case BlobTypes.Image:
 					const image = new globalThis.Image();
+					image.onload = () => resolve(image);
+					image.onerror = reject;
 					image.src = reader.result as string;
-					return resolve(image);
+					break;
 				case BlobTypes.Svg:
 					const doc = new (globalThis as any).DOMParser().parseFromString(reader.result as string, 'image/svg+xml');
 					return resolve(doc.querySelector('svg'));

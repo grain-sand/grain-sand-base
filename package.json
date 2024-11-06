@@ -10,6 +10,7 @@
     "test:gzip": "vitest gzip",
     "test:format": "vitest format",
     "test:string": "vitest string",
+    "test:data": "vitest data",
     "npm:login": "npm login --registry https://registry.npmjs.org/",
     "npm:publish": "cd dist && npm publish --registry https://registry.npmjs.org/ --access public"
   },
