@@ -1,21 +1,15 @@
 {
   "name": "grain-sand-base-dev",
-  "version": "0.1.5",
+  "version": "0.1.7",
   "scripts": {
     "build": "rollup -c --compact",
     "build-watch": "rollup -c --watch",
     "test": "vitest --test-timeout=500000",
     "test:timer": "vitest timer --test-timeout=500000",
-    "test:bak": "vitest bak",
-    "test:gzip": "vitest gzip",
     "test:format": "vitest format",
     "test:string": "vitest string",
-    "test:data": "vitest data",
     "npm:login": "npm login --registry https://registry.npmjs.org/",
-    "npm:publish": "cd dist && npm publish --registry https://registry.npmjs.org/ --access public"
-  },
-  "dependencies": {
-    "js-base64": "^3.7.7"
+    "npm:publish": "cd dist && npm publish --registry https://registry.npmjs.org/ --access public --proxy=http://172.15.0.1:8118"
   },
   "license": "MIT",
   "devDependencies": {
