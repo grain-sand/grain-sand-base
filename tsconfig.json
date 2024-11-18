@@ -1,5 +1,5 @@
 {
-  "include": ["src/**/*.ts","test-src/**/*.ts"],
+  "include": ["src/**/*.ts"],
   "compilerOptions": {
 	"baseUrl": ".",
 	"declaration": false,

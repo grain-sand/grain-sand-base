@@ -56,7 +56,7 @@ describe('json', () => {
 				[Symbol.asyncIterator]: async  function* () {
 					yield await new Promise<number>(resolve => setTimeout(() => resolve(1), 10));
 					yield await new Promise<number>(resolve => setTimeout(() => resolve(2), 10));
-					yield await new Promise<number>(resolve => setTimeout(() => resolve(undefined), 10));
+					yield await new Promise<number>(resolve => setTimeout(() => resolve(), 10));
 				}
 			}
 		}

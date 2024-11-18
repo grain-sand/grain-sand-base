@@ -43,7 +43,7 @@ export default defineConfig({
 			},
 
 		},
-		include: ['./test-src/*.ts'],
+		include: ['./test/test-*.ts'],
 		silent: true
 	},
 	logLevel: "error"

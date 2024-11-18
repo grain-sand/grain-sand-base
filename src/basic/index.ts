@@ -1,4 +1,5 @@
 export * from './array'
+export * from './AppCache'
 export * from './enum'
 export * from './IDisposable'
 export * from './map'

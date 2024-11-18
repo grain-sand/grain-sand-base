@@ -17,5 +17,5 @@ export function wait(range: IRandomRange, multiplier?: number): Promise<void>;
 export function wait(min: number, max: number, multiplier?: number): Promise<void>;
 export function wait(...args: any[]): Promise<void> {
 	const {timeout, range, multiplier} = parseTimerArg(...args);
-	return new Promise<void>(resolve => setTimeout(resolve, isNumber(timeout) ? timeout : randomRange(range!, multiplier)));
+	return new Promise<void>(resolve => setTimeout(resolve, isNumber(timeout) ? timeout! : randomRange(range!, multiplier)));
 }
