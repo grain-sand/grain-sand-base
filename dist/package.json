@@ -1,6 +1,6 @@
 {
   "name": "grain-sand-base",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "type": "module",
   "main": "lib/index.js",
   "module": "lib/index.js",

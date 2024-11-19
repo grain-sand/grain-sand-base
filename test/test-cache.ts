@@ -2,7 +2,7 @@
 // noinspection JSUnusedLocalSymbols
 
 import {describe, it, expect} from "vitest";
-import {AppCache, logJson, randomRange} from "../src";
+import {AppCache, logJson, promiseResolvers, randomRange} from "../src";
 
 const console = (top as any).console;
 
@@ -20,7 +20,11 @@ describe('cache', () => {
 			cache.put(key, value, randomRange({min: 1, max: 5}, 10));
 			expect(cache.get(key)).eq(value);
 			expect(cache.size).lte(cache.maxSize)
-			await logJson(cache)
+			// await logJson(cache)
 		}
+	})
+	it('other', async (): Promise<void> => {
+		expect(promiseResolvers()).property('resolve')
+		expect(promiseResolvers(true)).property('resolve')
 	})
 })
