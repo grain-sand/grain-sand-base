@@ -1,6 +1,6 @@
 {
   "name": "grain-sand-base-dev",
-  "version": "0.1.9",
+  "version": "0.1.11",
   "scripts": {
     "build": "rollup -c --compact",
     "build-watch": "rollup -c --watch",
@@ -9,6 +9,7 @@
     "test:format": "vitest format",
     "test:string": "vitest string",
     "test:cache": "vitest cache",
+    "test:async": "vitest async",
     "npm:login": "npm login --registry https://registry.npmjs.org/",
     "npm:publish": "cd dist && npm publish --access public --registry https://registry.npmjs.org/ --proxy=http://172.15.0.1:8118"
   },

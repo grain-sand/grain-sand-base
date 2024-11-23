@@ -23,8 +23,4 @@ describe('cache', () => {
 			// await logJson(cache)
 		}
 	})
-	it('other', async (): Promise<void> => {
-		expect(promiseResolvers()).property('resolve')
-		expect(promiseResolvers(true)).property('resolve')
-	})
 })

@@ -1,3 +1,4 @@
+export * from './async'
 export * from './basic'
 export * from './format'
 export * from './json'
