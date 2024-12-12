@@ -40,7 +40,12 @@ export class AppCache<Value = any, Key = any> {
 		})
 	}
 
-	// 添加或更新缓存
+	/**
+	 * 添加或更新缓存
+	 * @param key
+	 * @param value
+	 * @param size
+	 */
 	put(key: Key, value: Value, size: number): void {
 		if (size > this.maxSize) {
 			throw new Error(`Item size ${size} exceeds the maximum cache size of ${this.maxSize}`);
@@ -55,7 +60,7 @@ export class AppCache<Value = any, Key = any> {
 
 		// 如果需要，移除最少使用的条目以腾出空间
 		while (this.#size + size > this.maxSize) {
-			this.evict();
+			this.#evict();
 		}
 
 		// 添加新条目
@@ -68,7 +73,18 @@ export class AppCache<Value = any, Key = any> {
 		this.#size += size;
 	}
 
-	// 获取缓存项
+	/**
+	 * 是否存在某个缓存
+	 * @param key
+	 */
+	has(key: Key): boolean {
+		return this.#cache.has(key);
+	}
+
+	/**
+	 * 获取缓存项
+	 * @param key
+	 */
 	get(key: Key): Value | undefined {
 		const item = this.#cache.get(key);
 		if (!item) {
@@ -81,7 +97,10 @@ export class AppCache<Value = any, Key = any> {
 		return item.value;
 	}
 
-	// 移除缓存项
+	/**
+	 * 移除缓存项
+	 * @param key
+	 */
 	delete(key: Key): void {
 		const item = this.#cache.get(key);
 		if (item) {
@@ -90,14 +109,19 @@ export class AppCache<Value = any, Key = any> {
 		}
 	}
 
-	// 清空缓存
+	/**
+	 * 清空缓存
+	 */
 	clear(): void {
 		this.#cache.clear();
 		this.#size = 0;
 	}
 
-	// 选择并移除最少使用的条目
-	private evict(): void {
+	/**
+	 * 选择并移除最少使用的条目
+	 * @private
+	 */
+	#evict(): void {
 		const candidates = Array.from(this.#cache.entries())
 			.sort(([_, a], [__, b]) => {
 				if (a.usageCount !== b.usageCount) {
